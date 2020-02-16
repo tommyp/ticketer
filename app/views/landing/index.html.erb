@@ -1,2 +1,17 @@
-<h1>Landing#index</h1>
-<p>Find me in app/views/landing/index.html.erb</p>
+<div class="container">
+  <div class="content">
+    <h1>Don't miss your tickets for the best ever show</h1>
+    <% if @remaining_tickets != 0 %>
+      <span>only <%= pluralize(@remaining_tickets, 'ticket') %> left</span>
+    <% else %>
+      <span>sold out</span>
+    <% end %>
+  </div>
+
+  <%= form_with(url: "/", method: :post) do %>
+    <%= label_tag(:name, "Your name") %>
+    <%= text_field_tag(:name) %>
+    <%= submit_tag("Reserve ticket for 5 minutes") %>
+  <% end %>
+</div>
+
