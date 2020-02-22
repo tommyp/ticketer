@@ -1,5 +1,5 @@
 class LandingController < ApplicationController
   def index
-    @remaining_tickets = 5
+    @event = Event.first
   end
 end
