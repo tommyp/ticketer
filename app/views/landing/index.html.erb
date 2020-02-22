@@ -8,9 +8,10 @@
     <% end %>
   </div>
 
-  <%= form_with(url: "/", method: :post) do %>
+  <%= form_with(url: charge_path, method: :post) do %>
     <%= label_tag(:name, "Your name") %>
     <%= text_field_tag(:name) %>
+    <%= hidden_field_tag(:event_id, @event.id) %>
     <%= submit_tag("Reserve ticket for 5 minutes") %>
   <% end %>
 </div>

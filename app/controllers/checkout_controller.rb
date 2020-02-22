@@ -1,0 +1,3 @@
+def CheckoutController < ApplicationController
+
+end
