@@ -6,4 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Event.create!(available_tickets_count: 5)
+event = Event.create!(available_tickets_count: 5)
+
+5.times do
+  Ticket.create!(
+    event_id: event.id,
+    status: :available,
+  )
+end
