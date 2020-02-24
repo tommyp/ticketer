@@ -1,8 +1,24 @@
-<div class="container">
-  <div class="content">
-    <p>Nice to meet you <%= @ticket.name %></p>
-    <p>We reserved your ticket for 5 minutes.</p>
-    <p>Please complete your purchasing using your test credit card</p>
-  </div>
-</div>
+<% content_for :head do %>
+  <script src="https://js.stripe.com/v3/"></script>
 
+  <script type="text/javascript">
+    var stripe = Stripe('pk_test_3rCk8Ewa2UTc79iWJZDCeKmH00plww4RXx');
+
+    document
+      .querySelector("#checkout")
+      .addEventListener('click', (event) => {
+        stripe.redirectToCheckout({
+          sessionId: '<%= @stripe_session.id %>'
+        })
+      })
+  </script>
+
+<% end %>
+
+<div class="content">
+  <p>Nice to meet you <%= @ticket.name %>!</p>
+  <p>We reserved your ticket for 5 minutes.</p>
+  <p>Please complete the purchase using your test credit card</p>
+
+  <button id="checkout">Checkout</button>
+</div>

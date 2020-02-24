@@ -1,0 +1,11 @@
+<div class="content">
+  <h2>Registered guests</h2>
+
+  <ul>
+    <% @tickets.each do |ticket| %>
+      <li><%= ticket.name %>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Clear guests and start over again with 5 tickets available', reset_path, class: 'button'  %>
+</div>
