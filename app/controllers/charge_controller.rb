@@ -11,8 +11,8 @@ class ChargeController < ApplicationController
         currency: 'gbp',
         quantity: 1,
       }],
-      success_url: 'https://ticketer.test/success?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://ticketer.test/cancel',
+      success_url: ENV.fetch('STRIPE_SUCCESS_URL', 'https://ticketer.test/success?session_id={CHECKOUT_SESSION_ID}'),
+      cancel_url: ENV.fetch('STRIPE_CANCEL_URL', 'https://ticketer.test/cancel'),
     )
   end
 end
