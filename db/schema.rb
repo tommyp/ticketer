@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 2020_02_23_162212) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stripe_checkout_session_id"
+    t.boolean "stripe_confirmed"
+    t.datetime "stripe_confirmed_at"
     t.index ["event_id"], name: "index_tickets_on_event_id"
     t.index ["guid"], name: "index_tickets_on_guid", unique: true
     t.index ["name"], name: "index_tickets_on_name", unique: true
