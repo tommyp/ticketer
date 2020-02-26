@@ -1,18 +1,16 @@
-<div class="container">
-  <div class="content">
-    <h1>Don't miss your tickets for the best ever show</h1>
-    <% if @event.available_tickets_count > 0 %>
-      <span>only <%= pluralize(@event.available_tickets_count, 'ticket') %> left</span>
-    <% else %>
-      <span>sold out</span>
-    <% end %>
-  </div>
-
-  <%= form_with(url: allocate_path, method: :post) do %>
-    <%= label_tag(:name, "Your name") %>
-    <%= text_field_tag(:name) %>
-    <%= hidden_field_tag(:event_id, @event.id) %>
-    <%= submit_tag("Reserve ticket for 5 minutes") %>
+<div class="content">
+  <h1>Don't miss your tickets for the best ever show</h1>
+  <% if @event.available_tickets_count > 0 %>
+    <span>only <%= pluralize(@event.available_tickets_count, 'ticket') %> left</span>
+  <% else %>
+    <span>sold out</span>
   <% end %>
 </div>
+
+<%= form_with(url: allocate_path, method: :post) do %>
+  <%= label_tag(:name, "Your name") %>
+  <%= text_field_tag(:name) %>
+  <%= hidden_field_tag(:event_id, @event.id) %>
+  <%= submit_tag("Reserve ticket for 5 minutes") %>
+<% end %>
 
