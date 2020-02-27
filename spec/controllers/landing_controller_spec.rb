@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Landings", type: :request do
+RSpec.describe LandingController, type: :controller do
 
   describe "GET /" do
     before do
@@ -8,7 +8,7 @@ RSpec.describe "Landings", type: :request do
     end
 
     it "returns http success" do
-      get "/"
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
