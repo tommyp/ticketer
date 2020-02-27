@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Allocate", type: :request do
+RSpec.describe AllocateController, type: :controller do
 
   describe "POST /allocate" do
     let(:ticket) { create(:ticket) }
 
     it "returns http success" do
-      post "/allocate", params: { name: "John Smith", event_id: ticket.event_id}
+      post :index, params: { name: "John Smith", event_id: ticket.event_id}
 
       ticket.reload
       expect(ticket.claimed?).to eq(true)
