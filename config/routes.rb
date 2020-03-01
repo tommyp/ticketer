@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/webhook', to: 'webhook#index', as: :webhook
   post '/allocate', to: 'allocate#index', as: :allocate
   get '/charge', to: 'charge#index', as: :charge
   get '/success', to: 'charge#success', as: :success
