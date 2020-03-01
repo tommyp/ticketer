@@ -17,6 +17,11 @@ class Ticket < ApplicationRecord
     save!
   end
 
+  def sell!
+    self.status = "sold"
+    save!
+  end
+
   def set_guid
     self.guid = SecureRandom.uuid
   end
