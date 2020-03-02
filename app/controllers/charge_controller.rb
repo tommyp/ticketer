@@ -17,6 +17,11 @@ class ChargeController < ApplicationController
   end
 
   def success
+    if @ticket.nil?
+      flash[:alert] = "It looks like you might be too late for that ticket! Please try again."
+      redirect_to root_path
+    end
+
     @ticket.stripe_checkout_session_id = params[:session_id]
     @ticket.save!
   end

@@ -26,6 +26,8 @@ class Ticket < ApplicationRecord
   def cleanup!
     self.status = "available"
     self.name = nil
+    self.stripe_checkout_session_id = nil
+    set_guid
     save!
   end
 
