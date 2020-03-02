@@ -7,8 +7,8 @@ RSpec.describe WebhookController, type: :request do
 
     let!(:ticket) {
       create(:ticket,
-        status: "claimed",
-        stripe_checkout_session_id: stripe_checkout_id
+        :claimed,
+        stripe_checkout_session_id: stripe_checkout_id,
       )
     }
 
