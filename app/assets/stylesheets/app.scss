@@ -51,3 +51,7 @@ input[type="submit"] {
 .button {
   @include button;
 }
+
+.alert {
+  color: red;
+}

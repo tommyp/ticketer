@@ -21,6 +21,12 @@ class ChargeController < ApplicationController
     @ticket.save!
   end
 
+  def cancel
+    flash[:alert] = "Your ticket purchase has been cancelled."
+
+    redirect_to root_path
+  end
+
   private
 
   def find_ticket

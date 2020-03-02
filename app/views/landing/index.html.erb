@@ -1,3 +1,7 @@
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
 <div class="content">
   <h1>Don't miss your tickets for the best ever show</h1>
   <% if @event.available_tickets_count > 0 %>
