@@ -16,11 +16,13 @@ class Ticket < ApplicationRecord
     self.status = :claimed
     save!
     TicketCleanupWorker.perform_in(5.minutes, self.id)
+    event.update_counts!(self)
   end
 
   def sell!
     self.status = "sold"
     save!
+    event.update_counts!(self)
   end
 
   def cleanup!
@@ -29,6 +31,7 @@ class Ticket < ApplicationRecord
     self.stripe_checkout_session_id = nil
     set_guid
     save!
+    event.update_counts!(self)
   end
 
   def set_guid
