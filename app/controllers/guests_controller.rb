@@ -6,6 +6,11 @@ class GuestsController < ApplicationController
   def reset
     Ticket.destroy_all
     event = Event.first
+    event.update_attributes!({
+      available_tickets_count: 5,
+      claimed_tickets_count: 0,
+      sold_tickets_count: 0,
+    })
 
     5.times do
       Ticket.create!(
