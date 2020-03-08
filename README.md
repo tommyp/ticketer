@@ -1,24 +1,45 @@
-# README
+# Ticketer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+```
+gem install bundler
+bundle install
+```
 
-* Ruby version
+## Database
 
-* System dependencies
+This App requires Postgres. Once that's installed:
 
-* Configuration
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
-* Database creation
+And to populate the database with 5 tickets
 
-* Database initialization
+```
+bundle exec rake db:seed
+```
 
-* How to run the test suite
+## Local domain
 
-* Services (job queues, cache servers, search engines, etc.)
+This App uses puma-dev to support a local domain. Once puma is installed, symlink the directory.
 
-* Deployment instructions
+```
+puma-dev link -n ticketer
+```
 
-* ...
+## Running
+
+```
+foreman start
+```
+
+Visit [ticketer.test](https://ticketer.test).
+
+## Testing
+
+```
+bundle exec rspec
+```
