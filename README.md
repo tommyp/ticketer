@@ -7,6 +7,14 @@ gem install bundler
 bundle install
 ```
 
+## Background Jobs
+
+This App uses `sidekiq` for background jobs, so you'll need redis in order for this to work.
+
+```
+brew install redis
+```
+
 ## Database
 
 This App requires Postgres. Once that's installed:
@@ -43,3 +51,7 @@ Visit [ticketer.test](https://ticketer.test).
 ```
 bundle exec rspec
 ```
+
+## Edgecases
+
+- If an error happens during the Worker cleanup task, or if the webhook fails, then the ticket will have a corresponding Stripe charge but the ticket will get reallocated to available.
