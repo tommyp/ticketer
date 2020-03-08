@@ -7,16 +7,16 @@ class AllocateController < ApplicationController
         ticket.claim!(params[:name])
         cookies[:ticket_guid] = ticket.guid
 
-        respond_to do |format|
-          format.html { redirect_to charge_path }
-        end
+        redirect_to charge_path
       rescue ActiveRecord::RecordInvalid => e
         flash[:alert] = "It looks like you already have a ticket #{params[:name]} and tickets are only 1 per person!"
 
-        respond_to do |format|
-          format.html { redirect_to root_path }
-        end
+        redirect_to root_path
       end
+    else
+      flash[:alert] = "It looks like there are no more tickets."
+
+      redirect_to root_path
     end
   end
 end
