@@ -55,3 +55,4 @@ bundle exec rspec
 ## Edgecases
 
 - If an error happens during the Worker cleanup task, or if the webhook fails, then the ticket will have a corresponding Stripe charge but the ticket will get reallocated to available.
+- There is a race condition, that if someone doesn't checkout until the 5 minutes are nearly up, then the cleanup worker could make the ticket available again while they are checking out through stripe.
