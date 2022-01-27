@@ -61,4 +61,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'stripe'
 
-gem 'sidekiq', '5.2.7'
+gem 'sidekiq', '6.4.0'
